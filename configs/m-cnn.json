@@ -1,0 +1,45 @@
+{
+  "name": "m-cnn",
+  "comment": "M-CNN baseline",
+  "workspace": "<resultpath>/cellpainting",
+  "dataset": {
+    "reader": "datasets.Cellpainting",
+    "group_views": false,
+    "label_matrix_file": "<datapath>/label-matrix.mtx",
+    "label_row_index_file": "<datapath>/labels-compound-index.csv",
+    "label_col_index_file": "<datapath>/labels-assay-index.csv",
+    "data_directory_path": "<datapath>/npzs",
+    "train": {
+      "sample_index_file": "<datapath>/cellpainting-split-train.csv"
+    },
+    "val": {
+      "sample_index_file": "<datapath>/cellpainting-split-val.csv"
+    },
+    "transforms": [
+      "torchvision.transforms.ToTensor()",
+      "pyll.transforms.NormalizeByImage()"
+    ]
+  },
+  "optimizer": "import::torch.optim.SGD",
+  "optimizer_params": {
+    "lr": 1e-3,
+    "momentum": 0.9,
+    "weight_decay": 5e-4
+  },
+  "clip_grad_norm": {
+    "max_norm": 5,
+    "norm_type": 2
+  },
+  "lr_schedule_disabled": {
+    "decay_epoch": 20,
+    "decay_rate": 0.1
+  },
+  "model": "models.MCNN",
+  "training": {
+    "epochs": 100,
+    "batchsize": 100
+  },
+  "evaluation": {
+    "class_statistics": true
+  }
+}
