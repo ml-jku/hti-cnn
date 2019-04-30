@@ -18,3 +18,7 @@ python main.py --config <configfile> --gpu <gpu-id> --j <number of dataloading t
 
 ## Pre-trained Weights
 Weights for the trained GapNet can be downloaded here: https://ml.jku.at/software/cellpainting/models/gapnet.pth.tar
+When using the provided script specify the path to the downloaded weights via the --checkpoint switch, e.g.:
+```
+python main.py --config <configfile> --gpu <gpu-id> --checkpoint <path-to-checkpoint> --j <number of dataloading threads> --training.batchsize <bs>
+```
