@@ -15,3 +15,6 @@ Parameters from the configuration files can also be overwritten from the command
 ```
 python main.py --config <configfile> --gpu <gpu-id> --j <number of dataloading threads> --training.batchsize <bs>
 ```
+
+## Pre-trained Weights
+Weights for the trained GapNet can be downloaded here: https://ml.jku.at/software/cellpainting/models/gapnet.pth.tar
